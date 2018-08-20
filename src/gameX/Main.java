@@ -2,6 +2,9 @@ package gameX;
 import processing.core.PApplet;
 /*
  * @version 0.1.0
+ * COMPLETED:
+ * - Map generator(test map)
+ * TODO: Controllable Rammi
  */
 public class Main extends PApplet{ 
 	/**Variables**/
