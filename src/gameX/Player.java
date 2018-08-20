@@ -16,6 +16,7 @@ public class Player {
 		yPos = y;
 	}
 	public void drawPlayer(PApplet window) {
-		window.ellipse(xPos, yPos, 10, 10);
+		window.fill(0);
+		window.rect(xPos, yPos, 10, 10);
 	}
 }
