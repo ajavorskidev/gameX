@@ -4,7 +4,7 @@ import processing.core.PApplet;
  * @version 0.1.0
  * COMPLETED:
  * - Map generator(test map)
- * TODO: Controllable Rammi
+ * - Movable Rammi
  */
 public class Main extends PApplet{ 
 	/**Variables**/
@@ -35,6 +35,7 @@ public class Main extends PApplet{
 		if(map) {
 			mapGenerate();
 			player.drawPlayer(this);
+			playerControl();
 		}else {
 			text("Map not loaded!...",(screenWidth/2)-50,screenHeight/2);
 		}
@@ -63,6 +64,20 @@ public class Main extends PApplet{
 			return tundra;
 		}else {
 			return peak;
+		}
+	}
+	public void playerControl() {
+		if(keyPressed) {
+			if(key == 'w') {
+				player.movePlayer(1); //north
+			}else if(key == 's') {
+				player.movePlayer(3); //south
+			}else if(key == 'd') {
+				player.movePlayer(2); //east
+			}
+			if(key == 'a') {
+				player.movePlayer(4); //westad
+			}
 		}
 	}
 }

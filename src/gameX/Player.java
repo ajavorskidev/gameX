@@ -19,4 +19,18 @@ public class Player {
 		window.fill(0);
 		window.rect(xPos, yPos, 10, 10);
 	}
+	public void movePlayer(int way) {
+		if(way == 1) {
+			yPos -= speed; //north
+		}
+		if(way == 3) {
+			yPos += speed; //south
+		}
+		if(way == 2) {
+			xPos += speed; //east
+		}
+		if(way == 4) {
+			xPos -= speed; //west
+		}
+	}
 }
