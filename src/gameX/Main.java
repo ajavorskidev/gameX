@@ -1,17 +1,22 @@
 package gameX;
 import processing.core.PApplet;
 /*
- * @version 0.1.0
+ * @version 0.1.1
+ * items pending on fixing:
+ * - Rammi not entering water
+ * - Rammi actually fitting on the land tiles
+ * - less islands in the map generation and bigger continents instead
+ * - figure out the seed thing alittle more
+ * - start thinking about cities(don't code em yet)
  * COMPLETED:
- * - Map generator(test map)
- * - Movable Rammi
+ * -
  */
 public class Main extends PApplet{ 
 	/**Variables**/
 	public boolean mapLoaded = true;//By default, the mapLoaded boolean is false, since I need to load the map in.
 	public int screenWidth = 800;
 	public int screenHeight = 600;
-	public int tileSize = 20;
+	public int tileSize = 10;
 	public float scl = (float) 0.1; //scale
 	public long seed;
 	Player player = new Player(400,300);
@@ -34,8 +39,9 @@ public class Main extends PApplet{
 		background(0);
 		if(map) {
 			mapGenerate();
-			player.drawPlayer(this);
-			playerControl();
+			playerModule(); //same as what is commented below...
+//			player.drawPlayer(this);
+//			playerControl();
 		}else {
 			text("Map not loaded!...",(screenWidth/2)-50,screenHeight/2);
 		}
@@ -66,6 +72,11 @@ public class Main extends PApplet{
 			return peak;
 		}
 	}
+	/**Player**/
+	public void playerModule() {
+		playerControl(); //player movement
+		player.drawPlayer(this);
+	}
 	public void playerControl() {
 		if(keyPressed) {
 			if(key == 'w') {
@@ -76,7 +87,7 @@ public class Main extends PApplet{
 				player.movePlayer(2); //east
 			}
 			if(key == 'a') {
-				player.movePlayer(4); //westad
+				player.movePlayer(4); //west
 			}
 		}
 	}

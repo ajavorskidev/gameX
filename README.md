@@ -18,11 +18,14 @@ Basic game goals:
   do something like that, or maybe I will draw my own map. 
 
  Implemented Features:
+ - Procedurally generated map ver. 1
+ - basic controllable Rammi
  
  Features in progress:
- Version: 0.1.0
- - Movable Rammi 
- - Test Map
+ Version: 0.1.1
+ - Rammi won't enter water, and will follow tiles
+ - Map generator updates(make less islands and more continents...)
  
  Version Log:
+ - 0.1.0 Date: 08/20/2018 11:30pm
  - Setup Date: 08/18/2018 11:32am
