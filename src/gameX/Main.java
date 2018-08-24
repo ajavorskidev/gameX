@@ -20,6 +20,7 @@ public class Main extends PApplet{
 	public float scl = (float) 0.1; //scale
 	public long seed;
 	Player player = new Player(400,300);
+	public boolean land = true; //Rammi starts on land
 	/**COLORS**/
 	public int ocean = color(0,8,255);
 	public int coastWater = color(0,161,255);
@@ -47,8 +48,8 @@ public class Main extends PApplet{
 		}
 	}
 	public void mapGenerate() {
-//		noiseSeed(seed); //uses the seed set earlier
-		noStroke();
+		noiseSeed(26); //uses the seed set earlier
+//		noStroke();
 		for(int w = 0; w < screenWidth/tileSize;w++) {
 			for(int h = 0;h < screenHeight/tileSize;h++) {
 				fill(getColor(w,h));
@@ -74,7 +75,10 @@ public class Main extends PApplet{
 	}
 	/**Player**/
 	public void playerModule() {
-		playerControl(); //player movement
+		RammiOnLand();
+		if(land) {
+			playerControl(); //player movement
+		}
 		player.drawPlayer(this);
 	}
 	public void playerControl() {
@@ -91,4 +95,14 @@ public class Main extends PApplet{
 			}
 		}
 	}
+	public void RammiOnLand() {
+		if(getColor(player.getX()/tileSize,player.getY()/tileSize) != ocean) {
+			land = true;
+		}
+		else{
+			land = false;
+		}
+		System.out.println(land);
+	}
+	
 }

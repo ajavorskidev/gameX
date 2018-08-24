@@ -11,7 +11,7 @@ public class Player {
 		money = 1000;
 		partySize = 1; //how many people in party
 		caravanSize = 1; //how many wagons available
-		speed = 5; //How fast the caravan and party can move across the map
+		speed = 2; //How fast the caravan and party can move across the map
 		xPos = x;
 		yPos = y;
 	}
@@ -32,5 +32,11 @@ public class Player {
 		if(way == 4) {
 			xPos -= speed; //west
 		}
+	}
+	public int getX() {
+		return xPos;
+	}
+	public int getY() {
+		return yPos;
 	}
 }
